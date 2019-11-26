@@ -16,9 +16,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'))
 app.set('view engine', 'ejs')
 app.use('/trips' , require('./routes/trip'))
+app.use('/trip' , require('./routes/tripJson'))
 app.use('/corses' , require('./routes/corses'))
+app.use('/corsess' , require('./routes/corsesJson'))
 app.use('/Profile' , require('./routes/Profile'))
-
+app.use('/user' , require('./routes/user'))
+//dev test
 
 mongoose.connect(
    process.env.DB_CONNECTION,
@@ -27,7 +30,9 @@ mongoose.connect(
      console.log(`connect tho mongoDB`);
    }
  );
- 
+ //test dev
+
+ //i did this
 
  app.listen(PORT, () => {
      console.log(`running on ${PORT}`);
